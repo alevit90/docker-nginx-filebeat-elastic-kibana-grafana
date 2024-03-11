@@ -1,0 +1,82 @@
+version: '3.8'
+
+services:
+  elasticsearch:
+    build:
+      context: ./elasticsearch
+    volumes:
+      - type: bind
+        source: ./elasticsearch/config/elasticsearch.yml
+        target: /usr/share/elasticsearch/config/elasticsearch.yml
+    container_name: elasticsearch
+    networks:
+      - elastic
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xmx256m -Xms256m"
+      ELASTIC_PASSWORD: changeme
+
+  kibana:
+    build:
+      context: ./kibana
+    container_name: kibana
+    volumes:
+      - type: bind
+        source: ./kibana/config/kibana.yml
+        target: /usr/share/kibana/config/kibana.yml
+        read_only: true
+    networks:
+      - elastic
+    ports:
+      - "5601:5601"
+
+  nginx:
+    build:
+      context: ./nginx
+    container_name: nginx
+    networks:
+      - elastic
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/log:/var/log/nginx
+      - type: bind
+        source: ./nginx/config/nginx.conf
+        target:  /etc/nginx/nginx.conf
+    depends_on:
+      - elasticsearch
+        
+  filebeat:
+    build: ./filebeat
+    entrypoint: "filebeat -e -strict.perms=false"
+    volumes:
+      - ./filebeat/config/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - ./nginx/log:/var/log/nginx 
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
+  grafana:
+    build: ./grafana
+    container_name: grafana
+    networks:
+      - elastic
+    ports:
+      - "3000:3000"
+    depends_on:
+      - elasticsearch  
+   
+  curl:
+    build: ./curl
+    container_name: curl
+    networks:
+      - elastic
+    depends_on:
+      - kibana  
+
+networks:
+  elastic:
+    driver: bridge
