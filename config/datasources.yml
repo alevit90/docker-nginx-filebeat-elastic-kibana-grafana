@@ -1,1 +1,15 @@
+# Create the datasource for elasticsearch
 
+apiVersion: 1
+
+datasources:
+- name: Elasticsearch
+  type: elasticsearch
+  access: proxy
+  url: http://elasticsearch:9200
+  isDefault: true
+  jsonData:
+    indexName: 'nginx*' 
+    esVersion: 7
+    timeField: '@timestamp'
+    interval: Daily
