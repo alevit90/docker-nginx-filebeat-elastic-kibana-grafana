@@ -1,1 +1,16 @@
+## Filebeat configuration 
 
+filebeat.inputs:
+- type: log
+  paths:
+    - /var/log/nginx/access.log
+  fields:
+    document_type: nginx_access
+  fields_under_root: true
+setup.ilm.enabled: false
+setup.template.overwrite: true
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"] 
+  index: "nginx-%{+yyyy.MM.dd}"
+setup.template.name: "nginx"
+setup.template.pattern: "nginx-*"
