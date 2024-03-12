@@ -37,7 +37,7 @@ http://localhost:5601/app/discover#/
 ```
 
 Once it goes up, the curl container will take care of making a series of calls to nginx to general the log and create the index on elasticsearch via an -XPOST curl. 
-Through the start.cmd script, the curl container will be removed to keep the environment clean. As soon as the cmd window is closed, you can access grafana to go to the nginx logs  
+Through the start.cmd script, the curl container will be removed to keep the environment clean. As soon as the cmd window is closed, you can access grafana to go to the nginx logs:
 
 ```shell
 http://localhost:3000
