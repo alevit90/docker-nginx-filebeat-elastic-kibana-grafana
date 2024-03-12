@@ -18,3 +18,9 @@ Through Docker Compose, 6 containers will be run:
 
 **Curl**: A temporary container that will be used to make calls on nginx via curl and for creating the nginx index. At the end of its tasks the container and image will be removed
 
+To run the containers launch the following file:
+
+```shell
+start.cmd
+```
+
