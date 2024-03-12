@@ -42,6 +42,14 @@ Through the start.cmd script, the curl container will be removed to keep the env
 ```shell
 http://localhost:3000
 ```
+Log in to the grafana console with the default credentials admin:admin and create a new password
+
+Verify the creation of the elasticsearch datasource
+
+```shell
+http://localhost:3000/connections/datasources
+```
+and click on the explore button on the right to view the data
 
 
 # Note
