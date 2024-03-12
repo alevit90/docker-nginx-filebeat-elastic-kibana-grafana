@@ -30,7 +30,7 @@ Once the script has been launched, it will be necessary to wait for kibana to st
 http://localhost:5601
 ```
 
-Logs will be present trami the kibana discover:
+Logs will be present trami the kibana discover. It will take at least 2 minutes:
 
 ```shell
 http://localhost:5601/app/discover#/
