@@ -2,9 +2,9 @@ REM Run the docker compose command to create the environment
 
 docker compose up -d
 
-REM Wait 300 seconds for the kibana container to start
+REM Wait 130 seconds for the kibana container to start
 
-timeout /t 300 /nobreak
+timeout /t 130 /nobreak
 
 REM Deletion of container curl no longer needed
 
