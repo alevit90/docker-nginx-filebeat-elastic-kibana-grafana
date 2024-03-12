@@ -1,6 +1,6 @@
 # docker-nginx-filebeat-elastic-kibana-grafana
 
-This repository creates an environment where you can see nginx's access.log on grafana
+This repository creates a multi container environment where you can see nginx access.log on grafana
 
 # How To Use
 
@@ -24,3 +24,13 @@ To run the containers launch the following file:
 start.cmd
 ```
 
+# Note
+The following project was developed using docker version 4.28 
+
+The version of elasticsearch is 8.12
+
+The version of kibana is 8.12
+
+The version of filebeat is 8.0.0
+
+The version of nginx and grafana are latest
