@@ -11,6 +11,7 @@ curl -k http://nginx:80
 curl -k http://nginx:80
 curl -k http://nginx:80
 curl -k http://nginx:80
+curl -k http://nginx:80
 
 # Waiting for 200 seconds to wait for the kibana container to be operational
 
