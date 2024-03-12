@@ -1,4 +1,4 @@
-# docker-nginx-filebeat-elastic-kibana-grafana
+# Docker-Nginx-Filebeat-Elastic-Kibana-Grafana
 
 This repository creates a multi container environment where you can see nginx access.log on grafana
 
