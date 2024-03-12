@@ -13,9 +13,9 @@ curl -k http://nginx:80
 curl -k http://nginx:80
 curl -k http://nginx:80
 
-# Waiting for 200 seconds to wait for the kibana container to be operational
+# Waiting for 130 seconds to wait for the kibana container to be operational
 
-sleep 240
+sleep 130
 
 # Running the curl to create the index pattern
 
