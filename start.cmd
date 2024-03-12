@@ -9,5 +9,5 @@ timeout /t 150 /nobreak
 REM Deletion of container curl no longer needed
 
 docker compose down curl
-docker rmi images docker-nginx-filebeat-elastic-kibana-grafana-curl
+docker rmi images docker-nginx-filebeat-elastic-kibana-grafana-curl-main
 docker-compose restart grafana
